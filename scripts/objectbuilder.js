@@ -8,6 +8,7 @@
     }, 'edt');
 x.refresh(elements, {})
  */
+var jQueryLatest = jQueryLatest || {};
 (function ($, $GLOBAL) {
   $.objectbuilder = function(prototypes, objectkey) {
     objectkey = objectkey || 'tob';
@@ -21,7 +22,7 @@ x.refresh(elements, {})
           this.options = options || {};
           this.build();
         },
-        prototypes: $GLOBAL.extend({}, {
+        prototypes: $.extend({}, {
           build: function() {
           },
           refresh: function() {

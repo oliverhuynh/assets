@@ -52,5 +52,5 @@ jQueryLatest = jQueryLatest || jQuery;
     this._in_attaching = false;
   // };
   }, Drupal);
-  Drupal.slowAttachBehaviors = $.debounce(500, false, Drupal.attachBehaviors);
+  Drupal.slowAttachBehaviors = $GLOBAL.debounce(500, false, Drupal.attachBehaviors);
 }(jQuery, jQueryLatest));
