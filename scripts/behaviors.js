@@ -1,5 +1,8 @@
-jQueryLatest = jQueryLatest || jQuery;
-(function ($, $GLOBAL) {
+
+Drupal = global.Drupal || {};
+jQueryLatest = global.jQueryLatest || global.jQuery;
+Drupal.behaviors = Drupal.behaviors || [];
+(function ($, $GLOBAL, GLOBAL) {
   Drupal.attachBehaviors = $GLOBAL.proxy(function (context, settings) {
   // Drupal.attachBehaviors = function (context, settings) {
     if (this._in_attaching) {
@@ -52,5 +55,8 @@ jQueryLatest = jQueryLatest || jQuery;
     this._in_attaching = false;
   // };
   }, Drupal);
-  Drupal.slowAttachBehaviors = $GLOBAL.debounce(500, false, Drupal.attachBehaviors);
-}(jQuery, jQueryLatest));
+  Drupal.slowAttachBehaviors = GLOBAL.cowboy.Cowboy.debounce(500, false, Drupal.attachBehaviors);
+  $(document).ready(function() {
+    Drupal.slowAttachBehaviors($(document));
+  });
+}(jQuery, jQueryLatest, global));
